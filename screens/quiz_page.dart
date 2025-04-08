@@ -94,7 +94,7 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xFFABD1E6), // Warna latar belakang
       appBar: AppBar(
         backgroundColor: Color(0xFF3A6EA5),
-        title: Text('Question', style: TextStyle(color: Colors.white)),
+            title: Text('Question', style: TextStyle(color: Colors.white)),
         centerTitle: true,
       ),
       // Tampilkan layar hasil atau layar kuis berdasarkan status
@@ -192,6 +192,3 @@ class _QuizPageState extends State<QuizPage> {
                         color: Colors.white,
                       ),
                     ),
-                    onPressed: () {
-                      checkAnswer(false);
-                    },
