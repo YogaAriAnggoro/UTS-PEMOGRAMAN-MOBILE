@@ -192,3 +192,103 @@ class _QuizPageState extends State<QuizPage> {
                         color: Colors.white,
                       ),
                     ),
+                    onPressed: () {
+                      checkAnswer(false);
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            // Icon jawaban benar/salah
+            Row(children: scoreKeeper),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Widget tampilan hasil kuis
+  Widget _buildResultScreen() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Judul hasil
+              Text(
+                'Quiz Result',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: _getResultColor(),
+                ),
+              ),
+              SizedBox(height: 20),
+              // Skor
+              Text(
+                'Your Score: $totalScore / ${questionBank.length}',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.black87,
+                ),
+              ),
+              SizedBox(height: 10),
+              // Persentase
+              Text(
+                'Percentage: ${((totalScore / questionBank.length) * 100).toStringAsFixed(0)}%',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black54,
+                ),
+              ),
+              SizedBox(height: 20),
+              // Pesan hasil
+              Text(
+                _getResultMessage(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: _getResultColor(),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 30),
+              // Tombol kembali ke halaman utama
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF3A6EA5),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Back to Homepage',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
