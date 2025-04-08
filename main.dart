@@ -14,7 +14,7 @@ class QuizzIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-            title: 'QuizzIn', // Judul aplikasi
+      title: 'QuizzIn', // Judul aplikasi
       theme: ThemeData(
         useMaterial3: true, // Mengaktifkan penggunaan Material Design 3
       ),
