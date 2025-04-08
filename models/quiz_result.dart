@@ -4,3 +4,9 @@ class QuizResult {
   final DateTime date;
 
   // Total jumlah pertanyaan dalam kuis.
+final int totalQuestions;
+
+  // Skor yang didapatkan oleh pengguna dari kuis tersebut.
+  final int score;
+
+  // Konstruktor untuk menginisialisasi nilai-nilai properti
