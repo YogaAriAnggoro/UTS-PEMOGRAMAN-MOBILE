@@ -8,3 +8,7 @@ class Question {
 
   // Konstruktor untuk menginisialisasi nilai dari questionText dan correctAnswer.
   Question({
+    required this.questionText,
+    required this.correctAnswer
+  });
+}
