@@ -40,3 +40,26 @@ class ResultHistoryPage extends StatelessWidget {
               'Quiz on ${result.date.day}/${result.date.month}/${result.date.year}',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
+            subtitle: Text(
+              // Tampilkan skor kuis
+              'Score: ${result.score}/${result.totalQuestions}',
+              style: TextStyle(color: Colors.black),
+            ),
+            trailing: Text(
+              // Tampilkan persentase skor
+              '${(result.score / result.totalQuestions * 100).toStringAsFixed(0)}%',
+              style: TextStyle(
+                // Warna hijau jika skor >= 70%, merah jika < 70%
+                color: result.score / result.totalQuestions >= 0.7
+                    ? Colors.green
+                    : Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
