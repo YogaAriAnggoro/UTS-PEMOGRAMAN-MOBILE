@@ -58,3 +58,34 @@ class _HomePageState extends State<HomePage> {
                           score: score,
                         ));
                       },
+                    ),
+                  ),
+                );
+              },
+            ),
+            SizedBox(height: 20),
+            // Tombol untuk melihat riwayat hasil kuis
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              ),
+              child: Text('Result Quiz', style: TextStyle(fontSize: 20, color: Colors.white)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ResultHistoryPage(
+                      quizHistory: quizHistory,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
