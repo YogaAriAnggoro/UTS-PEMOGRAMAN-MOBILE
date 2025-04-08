@@ -28,3 +28,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFABD1E6), // Background biru muda
+      appBar: AppBar(
+        backgroundColor: Color(0xFF3A6EA5), // Header biru tua
+        title: Text('QuizzIn', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Tombol untuk memulai kuis
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              ),
+              child: Text('Start Quiz', style: TextStyle(fontSize: 20, color: Colors.white)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizPage(
+                      onQuizFinished: (int totalQuestions, int score) {
+                        // Simpan hasil kuis setelah selesai
+                        addQuizResult(QuizResult(
+                          date: DateTime.now(),
+                          totalQuestions: totalQuestions,
+                          score: score,
+                        ));
+                      },
