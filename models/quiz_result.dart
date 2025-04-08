@@ -10,3 +10,10 @@ final int totalQuestions;
   final int score;
 
   // Konstruktor untuk menginisialisasi nilai-nilai properti
+  // date, totalQuestions, dan score saat objek dibuat.
+  QuizResult({
+    required this.date,
+    required this.totalQuestions,
+    required this.score,
+  });
+}
