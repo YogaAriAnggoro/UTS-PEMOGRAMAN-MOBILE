@@ -18,4 +18,25 @@ class ResultHistoryPage extends StatelessWidget {
       backgroundColor: Color(0xFFABD1E6), // Warna latar belakang halaman
       appBar: AppBar(
         backgroundColor: Color(0xFF3A6EA5), // Warna latar AppBar
-        title: Text('Quiz History', style: TextStyle(color: Colors.white)), // Judul AppBar
+            title: Text('Quiz History', style: TextStyle(color: Colors.white)), // Judul AppBar
+        centerTitle: true, // Judul di tengah
+      ),
+      // Body menampilkan kondisi jika riwayat kosong atau ada data
+      body: quizHistory.isEmpty
+          ? Center(
+        child: Text(
+          'Nothing to show here.', // Teks jika tidak ada riwayat kuis
+          style: TextStyle(fontSize: 18),
+        ),
+      )
+          : ListView.builder(
+        itemCount: quizHistory.length, // Jumlah item dalam ListView
+        itemBuilder: (context, index) {
+          // Ambil data dari akhir ke awal (terbaru di atas)
+          final result = quizHistory[quizHistory.length - 1 - index];
+          return ListTile(
+            title: Text(
+              // Tampilkan tanggal kuis
+              'Quiz on ${result.date.day}/${result.date.month}/${result.date.year}',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
